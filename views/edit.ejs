@@ -3,14 +3,21 @@
 
 <%- include('./head.ejs') %>
 
-    <body>
+<body>
+    <div style="text-align: center; margin-top: 20px;">
         <h1>Edit Item</h1>
-        <form action="/update/<%= item.id %>" method="post">
-            <input type="text" name="nombre" value="<%= item.nombre %>" required>
-            <input type="text" name="email" value="<%= item.email %>" required>
-            <!-- Nuevo campo -->
-            <button type="submit">Update</button>
+        <form action="/update/<%= item.id %>" method="post" style="max-width: 400px; margin: 0 auto;">
+            <div style="margin-bottom: 10px;">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<%= item.nombre %>" required>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="<%= item.email %>" required>
+            </div>
+            <button type="submit" style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Update</button>
         </form>
-    </body>
+    </div>
+</body>
 
 </html>

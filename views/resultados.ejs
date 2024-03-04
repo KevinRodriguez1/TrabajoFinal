@@ -3,15 +3,45 @@
 
 <%- include('./head.ejs') %>
 
-    <body>
-        <h1>
-            <%= title %>
-        </h1>
-        <ul>
-            <% personas.forEach(element => { %>
-                <li>
-                    <%= element.nombre  %>
-                </li>
-                <% }) %>
-        </ul>
-    </body>
+<body>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <h1>
+        <%= title %>
+    </h1>
+
+    <ul>
+        <% personas.forEach(element => { %>
+        <li>
+            <%= element.nombre  %>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>

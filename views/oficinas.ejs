@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<%- include('./head.ejs') %>
+
+    
+    <body style="background-color: rgb(235, 122, 122);">
+      <%- include('./header.ejs', { title: 'LISTADO DE OFICINAS' }) %>
+      <div class="contenedor"style="padding: 20px;">
+        <% oficinas.forEach(element => { %>
+          <div class="row border border-dark mt-1 p" style="background-color: #fff" >
+            <div class="col-md-4 mt-2  border-dark">
+                <%= element.id %>
+            </div>
+            <div class="col-md-4 mt-2  border-dark">
+              <%=  element.denominacion %>
+            </div>
+
+            <div class="col-md-4 mt-2  border-dark">
+              <a class="btn btn-success" href="/editarOficina/<%= element.id %>" role="button">EDITAR</a>
+              <a class="btn btn-primary" href="/agregarOficina" role="button">AGREGAR</a>
+              <a class="btn btn-danger" href="/eliminarOficina/<%= element.id %>" role="button">BORRAR</a>
+              
+            </div>
+          </div>
+        <% }) %> 
+      </div>
+
+
+    </body>
+  </html>

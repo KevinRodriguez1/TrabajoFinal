@@ -1,5 +1,5 @@
-
 var express = require('express');
+
 const listPersonas = (req, res, next) => {
     const db = req.app.get("db");
     const query = "SELECT * from persona";
@@ -11,9 +11,11 @@ const listPersonas = (req, res, next) => {
         res.render("personas", { personas: rows, title: "Lista" });
     })
 }
+
 const agregarPersona = function(req, res, next) {
     res.render('agregar', { title: "Agregar" });
 }
+
 const postAgregarPersona = function(req, res, next) {
     const db = req.app.get("db");
     const nombre = req.body.nombre;
@@ -27,6 +29,7 @@ const postAgregarPersona = function(req, res, next) {
         res.redirect("/personas");
     })
 }
+
 const getEditarPersona = function(req, res, next) {
     var db = req.app.get('db');
     var id = req.params.id;
@@ -38,6 +41,7 @@ const getEditarPersona = function(req, res, next) {
         res.render('edit', { item: rows[0], title: "Editar" });
     });
 }
+
 const postUpdatePersona = function(req, res, next) {
     var db = req.app.get('db');
     var id = req.params.id;
@@ -51,6 +55,7 @@ const postUpdatePersona = function(req, res, next) {
         res.redirect('/personas');
     });
 }
+
 const getDeletePersona = (req, res, next) => {
     var db = req.app.get('db');
     var id = req.params.id;
@@ -62,6 +67,7 @@ const getDeletePersona = (req, res, next) => {
         res.render('borrar', { item: rows[0], title: "Borrar" });
     });
 }
+
 const postDeletePersona = function(req, res, next) {
     var db = req.app.get('db');
     var id = req.params.id;
@@ -73,9 +79,11 @@ const postDeletePersona = function(req, res, next) {
         res.redirect('/personas');
     });
 }
+
 const buscarPersona = (req, res, next) => {
     res.render('busqueda', { title: "Buscar" });
 }
+
 const buscarPersonaResultados = (req, res, next) => {
     const db = req.app.get("db");
     const keyword = req.body.keyword;
@@ -85,6 +93,12 @@ const buscarPersonaResultados = (req, res, next) => {
         res.render('resultados', { personas: rows, title: "Resultados" })
     });
 }
+
+////////////OFICINAS/////////
+
+
+
+
 module.exports = {
     listPersonas,
     agregarPersona,

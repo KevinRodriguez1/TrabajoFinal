@@ -3,31 +3,25 @@
 
 <%- include('./head.ejs') %>
 
-    <body>
-        <%- include('./navigation.ejs') %>
-            <h1>Lista de personas</h1>
-            <div class="container">
-                <% personas.forEach(element => { %>
-                    <div class="row">
-                        <div class="col-md-4 mt-4">
-                            <%= element.nombre %>
-                        </div>
-                        <div class="col-md-4 mt-4">
-                            <%= element.email %>
-                        </div>
-                        <div class="col-md-4 mt-4">
-                            <a class="btn btn-primary" href="/edit/<%= element.id %>" role="button">Editar</a>
-                            <a class="btn btn-primary" href="/delete/<%= element.id %>" role="button">Borrar</a>
-                        </div>
-                    </div>
-                    <% }) %>
-
+<body style="background-color: rgb(223, 222, 215);">
+    <%- include('./navigation.ejs') %>
+    <%- include('./header.ejs', { title: 'Listado de Personas' }) %>
+    <div class="container" style="margin-top: 20px;">
+        <% personas.forEach(element => { %>
+        <div class="row" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+            <div class="col-md-4 mt-4">
+                <strong>Nombre:</strong> <%= element.nombre %>
             </div>
-
-
-            <ul>
-
-            </ul>
-    </body>
+            <div class="col-md-4 mt-4">
+                <strong>Email:</strong> <%= element.email %>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a class="btn btn-primary" href="/edit/<%= element.id %>" role="button">Editar</a>
+                <a class="btn btn-danger" href="/delete/<%= element.id %>" role="button">Borrar</a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
 
 </html>
